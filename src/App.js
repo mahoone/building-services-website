@@ -1,12 +1,20 @@
+import React from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages';
+import ContactUsPage from './pages/contactus';
+import ComingSoonPage from './pages/comingsoon';
 
 function App() {
   return (
-    <Router>
-      <Home />
-    </Router>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/kontakt" component={ContactUsPage} exact />
+        <Route path="/nie-znaleziono" component={ComingSoonPage} exact />
+        <Route path="/*" component={ComingSoonPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -7,7 +7,8 @@ import {
     SidebarMenu,
     SidebarLink,
     SideBtnWrap,
-    SidebarRoute
+    SidebarRoute,
+    SidebarLinkHref
 } from './SidebarElements'
 import { NavBtnLinkIcon } from '../Navbar/NavbarElements';
 
@@ -22,12 +23,15 @@ const Sidebar = ({ isOpen, toggle }) => {
                     <SidebarLink to="services" onClick={toggle}>
                         Usługi
                     </SidebarLink>
-                    <SidebarLink to="about" onClick={toggle}>
-                        O firmie
+                    <SidebarLink to="equipment" onClick={toggle}>
+                        Sprzęt
                     </SidebarLink>
-                    <SidebarLink to="contact" onClick={toggle}>
+                    <SidebarLink to="locations" onClick={toggle}>
+                        Lokalizacje
+                    </SidebarLink>
+                    <SidebarLinkHref to="/kontakt" onClick={toggle}>
                         Kontakt
-                    </SidebarLink>
+                    </SidebarLinkHref>
                 </SidebarMenu>
                 <SideBtnWrap>
                     <SidebarRoute to="/getInTouch"><NavBtnLinkIcon />

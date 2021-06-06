@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa'
+//import { IconContext } from 'react-icons/lib'
+import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -10,33 +12,61 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
-  NavBtnLinkIcon
+  NavBtnLinkIcon,
+  NavLinksHref
 } from './NavbarElements';
 
-export const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle }) => {
+  const [scrollNav, setScrollNav] = useState(false)
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true)
+    } else {
+      setScrollNav(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', changeNav);
+  }, []);
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
-      <Nav>
+      <Nav scrollNav={scrollNav}>
         <NavbarContainer>
-          <NavLogo to="/">
-            Marcin P
+          <NavLogo to="/" onClick={toggleHome}>
+            Cinek Koparki
           </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="services">Usługi</NavLinks>
+              <NavLinks to="services"
+                smooth={true} duration={500} spy={true} exact='true' offset={-80}
+              >Usługi</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="about">O firmie</NavLinks>
+              <NavLinks to="equipment"
+                smooth={true} duration={500} spy={true} exact='true' offset={-80}
+              >Sprzęt</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contact">Kontakt</NavLinks>
+              <NavLinks to="locations"
+                smooth={true} duration={500} spy={true} exact='true' offset={-80}
+              >Lokalizacje</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinksHref to="/kontakt">Kontakt</NavLinksHref>
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to="/getInTouch"><NavBtnLinkIcon />146812 067</NavBtnLink>
+            <NavBtnLink href="tel:+48783535487"><NavBtnLinkIcon />783 535 487</NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

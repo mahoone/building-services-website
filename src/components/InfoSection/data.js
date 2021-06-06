@@ -1,0 +1,55 @@
+export const specObjOne = {
+    id: 'services',
+    lightBg: false,
+    lightText: true,
+    lightTextDesc: true,
+    topLine: 'NASZE USŁUGI',
+    headline: 'USŁUGI KOPARKO-ŁADOWARKĄ',
+    buttonLabel: 'Zadaj pytanie',
+    imgStart: false,
+    img: require('../../images/uslugi.svg').default,
+    imgClass: false,
+    alt: 'budownictwo',
+    dark: true,
+    primary: true,
+    darkText: false,
+    isButton: false,
+    isList: true,
+    listPoints: [
+        'wykopy fundamentowe',
+        'wykopy pod kable energetyczne, telefoniczne i światłowodowe',
+        'wykopy pod sieci wodno-kanalizacyjne',
+        'wykopy pod sieci gazowe',
+        'wykopy pod przyłącza deszczowe',
+        'korytowanie pod kostkę i drogę',
+        'przygotowanie terenu pod budowę',
+        'załadunek i rozładunek palet',
+        'wykopy pod studnie i szamba',
+        'wyrównanie terenu',
+        'usuwanie pozostałości po drzewach',
+        'i inne według uznania klienta',
+    ]
+}
+
+export const specObjTwo = {
+    id: 'equipment',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: 'SPRZĘT',
+    headline: 'NEW HOLLAND LB110B',
+    buttonLabel: 'Zadaj pytanie',
+    imgStart: false,
+    img: require('../../images/koparka.jpg').default,
+    alt: 'koparka',
+    imgClass: true,
+    dark: true,
+    primary: true,
+    darkText: true,
+    isButton: false,
+    isList: true,
+    listPoints: [
+        'łyżki: 30cm, 60cm, skarpówka 150cm',
+        'widły do palet'
+    ]
+}

@@ -4,7 +4,7 @@ import { Link as LinkScroll } from 'react-scroll'
 import { FaPhoneAlt } from 'react-icons/fa'
 
 export const Nav = styled.nav`
-    background: transparent;
+    background: ${({ scrollNav }) => (scrollNav ? '#151F29' : 'transparent')};
     height: 80px;
     margin-top: -80px;
     display: flex;
@@ -83,7 +83,20 @@ export const NavLinks = styled(LinkScroll)`
     cursor: pointer;
 
     &.active {
-        border-radius: 3px solid #01bf71;
+        border-bottom: 3px solid #FFC94B;
+    }
+`;
+
+export const NavLinksHref = styled(LinkRouter)`
+    color: #fff;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    padding: 0 1rem;
+    height: 100%;
+
+    &.active {
+        border-bottom: 3px solid #FFC94B;
     }
 `;
 
@@ -96,7 +109,7 @@ export const NavBtn = styled.nav`
     }
 `;
 
-export const NavBtnLink = styled(LinkRouter)`
+export const NavBtnLink = styled.a`
     border-radius: 50px;
     background: #FFC94B;
     white-space: nowrap;
